@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=TimerSwitch
-comment1.params=clock
-comment1.target=TimerSwitch(Clock)
+comment1.params=clock\ day
+comment1.target=TimerSwitch(Clock,\ Day)
 comment10.params=
 comment10.target=void\ setProgramType()
 comment11.params=

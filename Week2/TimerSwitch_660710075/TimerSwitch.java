@@ -1,9 +1,8 @@
 import java.util.TimerTask;
 import java.util.Timer;
-import java.util.Date;
 
 public class TimerSwitch{
-    private Date date;
+    private Day day;
     private Timer timer;
     private Clock clock;
     private String currentTime; //"HH:MM:SS"
@@ -12,10 +11,10 @@ public class TimerSwitch{
     private boolean eSwitch; //switch: True False
     private String state; //"On", "Off", "Auto"
     private int programMode; //1 - 15
-    private boolean isUpdate;
+    private boolean isUpday;
         
-    TimerSwitch(Clock clock){
-        date = new Date();
+    TimerSwitch(Clock clock,Day day){
+        this.day = day;
         timer = new Timer();
         this.clock = clock;
         timer.schedule(new TimerTask() {
@@ -27,32 +26,34 @@ public class TimerSwitch{
         state = "ON";
         eSwitch = true;
         programMode = 1;
-        isUpdate = true;
+        isUpday = true;
     }
     
     public void check(){
         currentTime = clock.getCurrentTime().toString();
-        currentTime = currentTime.substring(0,8);
-        //System.out.println(date.getDate() + " " + currentTime);
-        if(date.getDate() == 1){
+        if (currentTime.length() > 5){
+            currentTime = currentTime.substring(0,8);
+        }
+        //System.out.println(day.getDay() + " " + currentTime);
+        if(day.getDay() == 1){
             System.out.println("Sun " + currentTime);
         }
-        else if(date.getDate() == 2){
+        else if(day.getDay() == 2){
             System.out.println("Mon " + currentTime);
         }
-        else if(date.getDate() == 3){
+        else if(day.getDay() == 3){
             System.out.println("Tue " + currentTime);
         }
-        else if(date.getDate() == 4){
+        else if(day.getDay() == 4){
             System.out.println("Wed " + currentTime);
         }
-        else if(date.getDate() == 5){
+        else if(day.getDay() == 5){
             System.out.println("Thu " + currentTime);
         }
-        else if(date.getDate() == 6){
+        else if(day.getDay() == 6){
             System.out.println("Fri " + currentTime);
         }
-        else if(date.getDate() == 7){
+        else if(day.getDay() == 7){
             System.out.println("Sat " + currentTime);
         }
         program();
@@ -64,10 +65,10 @@ public class TimerSwitch{
             //System.out.println("System OFF");
             System.out.println("Mode OFF");
             eSwitch = false;
-            isUpdate = true;
+            isUpday = true;
         }
         else if(state.equals("OFF")){
-            //System.out.println("Mode Auto");
+            System.out.println("Mode Auto");
             state = "AUTO";
         }
         else if(state.equals("AUTO")){
@@ -75,7 +76,7 @@ public class TimerSwitch{
             //System.out.println("System ON");
             System.out.println("Mode ON");
             eSwitch = true;
-            isUpdate = true;
+            isUpday = true;
         }
 
     }
@@ -86,7 +87,7 @@ public class TimerSwitch{
     }
     
     public void powerOn(){
-        date = new Date();
+        day = new Day();
         timer = new Timer();
         clock = new Clock();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -97,7 +98,7 @@ public class TimerSwitch{
         }, 0, 1000);
         state = "ON";
         programMode = 1;
-        isUpdate = true;
+        isUpday = true;
     }
     
     public void setOnProgram(String when){
@@ -123,191 +124,191 @@ public class TimerSwitch{
     }
     
     public boolean getIsUpdate(){
-        return isUpdate;
+        return isUpday;
     }
     
     public void setIsUpdate(boolean key){
-        isUpdate = key;
+        isUpday = key;
     }
     
     public void program(){
         // Program 1
         if (programMode == 1){
-            if((date.getDate() == 1 || date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4 || date.getDate() == 5 || date.getDate() == 6 || date.getDate() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 1 || day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4 || day.getDay() == 5 || day.getDay() == 6 || day.getDay() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 1 || date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4 || date.getDate() == 5 || date.getDate() == 6 || date.getDate() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 1 || day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4 || day.getDay() == 5 || day.getDay() == 6 || day.getDay() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 2
         else if (programMode == 2){
-            if(date.getDate() == 2 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 2 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 2 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 2 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 3
         else if (programMode == 3){
-            if(date.getDate() == 3 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 3 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 3 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 3 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 4
         else if (programMode == 4){
-            if(date.getDate() == 4 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 4 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 4 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 4 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 5
         else if (programMode == 5){
-            if(date.getDate() == 5 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 5 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 5 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 5 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 6
         else if (programMode == 6){
-            if(date.getDate() == 6 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 6 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 6 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 6 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 7
         else if (programMode == 7){
-            if(date.getDate() == 7 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 7 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 7 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 7 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 8
         else if (programMode == 8){
-            if(date.getDate() == 1 && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if(day.getDay() == 1 && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if (date.getDate() == 1 && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if (day.getDay() == 1 && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 9
         else if (programMode == 9){
-            if((date.getDate() == 2 || date.getDate() == 4 || date.getDate() == 6) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 2 || day.getDay() == 4 || day.getDay() == 6) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 2 || date.getDate() == 4 || date.getDate() == 6) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 2 || day.getDay() == 4 || day.getDay() == 6) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 10
         else if (programMode == 10){
-            if((date.getDate() == 3 || date.getDate() == 5 || date.getDate() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 3 || day.getDay() == 5 || day.getDay() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 3 || date.getDate() == 5 || date.getDate() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 3 || day.getDay() == 5 || day.getDay() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 11
         else if (programMode == 11){
-            if((date.getDate() == 7 || date.getDate() == 1) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 7 || day.getDay() == 1) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 7 || date.getDate() == 1) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 7 || day.getDay() == 1) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 12
         else if (programMode == 12){
-            if((date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 13
         else if (programMode == 13){
-            if((date.getDate() == 5 || date.getDate() == 6 || date.getDate() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 5 || day.getDay() == 6 || day.getDay() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 5 || date.getDate() == 6 || date.getDate() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 5 || day.getDay() == 6 || day.getDay() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 14
         else if (programMode == 14){
-            if((date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4 || date.getDate() == 5 || date.getDate() == 6) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4 || day.getDay() == 5 || day.getDay() == 6) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4 || date.getDate() == 5 || date.getDate() == 6) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4 || day.getDay() == 5 || day.getDay() == 6) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
         // Program 15
         else if (programMode == 15){
-            if((date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4 || date.getDate() == 5 || date.getDate() == 6 || date.getDate() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
+            if((day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4 || day.getDay() == 5 || day.getDay() == 6 || day.getDay() == 7) && currentTime.equals(onProgram) && state.equals("AUTO")){
                 eSwitch = true;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System ON");
-            }else if ((date.getDate() == 2 || date.getDate() == 3 || date.getDate() == 4 || date.getDate() == 5 || date.getDate() == 6 || date.getDate() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
+            }else if ((day.getDay() == 2 || day.getDay() == 3 || day.getDay() == 4 || day.getDay() == 5 || day.getDay() == 6 || day.getDay() == 7) && currentTime.equals(offProgram) && state.equals("AUTO")){
                 eSwitch = false;
-                isUpdate = true;
+                isUpday = true;
                 //System.out.println("System OFF");
             }
         }
