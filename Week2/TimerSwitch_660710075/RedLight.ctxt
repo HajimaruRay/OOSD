@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=RedLight
-comment1.params=timerSwitch
-comment1.target=RedLight(TimerSwitch)
-comment2.params=
-comment2.target=void\ run()
-numComments=3

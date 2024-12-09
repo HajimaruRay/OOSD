@@ -1,39 +1,45 @@
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
-public class Day{
-    private String d;
+public class Day {
     private int day;
-    private Date date;
     
-    Day(){
-        date = new Date();
-        day = date.getDate();
+    Day() {
+        LocalDate currentDate = LocalDate.now();
+        this.day = currentDate.getDayOfWeek().getValue(); // Get day as an integer (1 = Monday, 7 = Sunday)
     }
-    Day(String d){
-        if (d.equalsIgnoreCase("sun")){
-            day = 1;
-        }
-        else if (d.equalsIgnoreCase("mon")){
-            day = 2;
-        }
-        else if (d.equalsIgnoreCase("tue")){
-            day = 3;
-        }
-        else if (d.equalsIgnoreCase("wed")){
-            day = 4;
-        }
-        else if (d.equalsIgnoreCase("thu")){
-            day = 5;
-        }
-        else if (d.equalsIgnoreCase("fri")){
-            day = 6;
-        }
-        else if (d.equalsIgnoreCase("sat")){
-            day = 7;
+
+    Day(String d) {
+        d = d.toLowerCase();
+        switch (d) {
+            case "sun":
+                day = 7;
+                break;
+            case "mon":
+                day = 1;
+                break;
+            case "tue":
+                day = 2;
+                break;
+            case "wed":
+                day = 3;
+                break;
+            case "thu":
+                day = 4;
+                break;
+            case "fri":
+                day = 5;
+                break;
+            case "sat":
+                day = 6;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid day string: " + d); // Handle invalid input
         }
     }
-    
-    public int getDay(){
+
+    public int getDay() {
         return day;
     }
 }

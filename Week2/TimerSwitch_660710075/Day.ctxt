@@ -1,9 +1,8 @@
 #BlueJ class context
-comment0.target=Day
-comment1.params=
-comment1.target=Day()
-comment2.params=d
-comment2.target=Day(java.lang.String)
-comment3.params=
-comment3.target=int\ getDay()
-numComments=4
+comment0.params=
+comment0.target=Day()
+comment1.params=d
+comment1.target=Day(java.lang.String)
+comment2.params=
+comment2.target=int\ getDay()
+numComments=3

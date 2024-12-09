@@ -34,26 +34,29 @@ public class TimerSwitch{
         if (currentTime.length() > 5){
             currentTime = currentTime.substring(0,8);
         }
+        else if (currentTime.length() <= 5){
+            currentTime += ":00" ;
+        }
         //System.out.println(day.getDay() + " " + currentTime);
-        if(day.getDay() == 1){
+        if(day.getDay() == 7){
             System.out.println("Sun " + currentTime);
         }
-        else if(day.getDay() == 2){
+        else if(day.getDay() == 1){
             System.out.println("Mon " + currentTime);
         }
-        else if(day.getDay() == 3){
+        else if(day.getDay() == 2){
             System.out.println("Tue " + currentTime);
         }
-        else if(day.getDay() == 4){
+        else if(day.getDay() == 3){
             System.out.println("Wed " + currentTime);
         }
-        else if(day.getDay() == 5){
+        else if(day.getDay() == 4){
             System.out.println("Thu " + currentTime);
         }
-        else if(day.getDay() == 6){
+        else if(day.getDay() == 5){
             System.out.println("Fri " + currentTime);
         }
-        else if(day.getDay() == 7){
+        else if(day.getDay() == 6){
             System.out.println("Sat " + currentTime);
         }
         program();
@@ -97,6 +100,7 @@ public class TimerSwitch{
             }
         }, 0, 1000);
         state = "ON";
+        eSwitch = true;
         programMode = 1;
         isUpday = true;
     }
@@ -318,4 +322,6 @@ public class TimerSwitch{
     public boolean geteSwitch(){
         return eSwitch;
     }
+    
+    
 }
