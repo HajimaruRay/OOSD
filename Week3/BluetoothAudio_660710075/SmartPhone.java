@@ -1,78 +1,56 @@
-public class SmartPhone{
-   private boolean bluetoothStatus; // true , false
-   private boolean connection; // true, false
-   private boolean musicPlay; // true , false
-   private String connectionDevice; //"Speeker","HeadPhone"
-   private HeadPhone headphone;
+public class SmartPhone {
+   private boolean musicPlay; // true or false
+   private Bluetooth bluetooth;
+   private String connectionDevice; // "Speaker", "Headphone"
    
-   SmartPhone(){
-       bluetoothStatus = false;
-       connection = false;
+   SmartPhone() {
        musicPlay = false;
-       connectionDevice = "Speeker";
+       connectionDevice = "Speaker";
    }
    
-   public void turnOnBluetooth(){
-       if (!bluetoothStatus){
-           bluetoothStatus = true;
+   public void turnOnBluetooth(Bluetooth b) {
+       bluetooth = b;
+       if (!bluetooth.getBluetoothStatus()) {
+           bluetooth.setBluetoothStatus(true);
            System.out.println("Bluetooth is on.");
-       }
-       else{
+       } else {
            System.out.println("Bluetooth is already on.");
        }
    }
-   
-   public void turnOffBluetooth(){
-       if (bluetoothStatus){
-           pauseMusic();
-           disconnecting();
-           bluetoothStatus = false;
+
+   public void turnOffBluetooth() {
+       if (bluetooth.getBluetoothStatus()) {
+           bluetooth.disconnect();
+           bluetooth.setBluetoothStatus(false);
            System.out.println("Bluetooth is off.");
-       }
-       else{
+       } else {
            System.out.println("Bluetooth is already off.");
        }
    }
-   
-   public void connecting(HeadPhone headphone){
-       if (bluetoothStatus){
-           connection = true;
-           this.headphone = headphone;
-           headphone.connectedToSmartphone();
-           connectionDevice = "Headphone";
-           System.out.println("Device Connected.");
-       }
-       else{
-           System.out.println("Please turn on bluetooth.");
-       }
-   }
-   
-   public void disconnecting(){
-       if (connection){
-           connection = false;
-           pauseMusic();
-           headphone.disconnectedToSmartphone();
-           this.headphone = null;
-           connectionDevice = "Speeker";
-           System.out.println("Device Disconnected.");
-       }
-       else{
-           System.out.println("Don't have any device is connected.");
-       }
-   }
-   
-   public void playMusic(){
+
+   public void playMusic() {
        musicPlay = true;
-       if (connectionDevice.equals("Speeker")){
+       if (connectionDevice.equals("Speaker")) {
            System.out.println("Music is playing through the speaker.");
-       }
-       else if (connectionDevice.equals("Headphone") && headphone.getIsConnectedToHeadPhone()){
-           System.out.println("Music is playing through the Headphone.");
+       } else if (connectionDevice.equals("Headphone")) {
+           System.out.println("Music is playing through the headphone.");
        }
    }
-   
-   public void pauseMusic(){
+
+   public void pauseMusic() {
        musicPlay = false;
-       System.out.println("Music Pause");
+       System.out.println("Music Paused.");
+   }
+
+   public void setConnectionDevice(String device) {
+       this.connectionDevice = device;
+   }
+   
+   public String getConnectionDevice() {
+       return this.connectionDevice;
+   }
+   
+   public Bluetooth getBluetooth() {
+       return this.bluetooth;
    }
 }

@@ -1,21 +1,17 @@
-class HeadPhone{
-    private boolean isConnectedToHeadPhone;
-    
-    HeadPhone(){
-        isConnectedToHeadPhone = false;
+class HeadPhone {
+    private boolean isConnectedToSmartphone;
+
+    HeadPhone() {
+        isConnectedToSmartphone = false;
     }
-    
-    public void connectedToSmartphone(){
-        isConnectedToHeadPhone = true;
-        System.out.println("Connected to smartphone Successful.");
+
+    public void connectToSmartphone() {
+        isConnectedToSmartphone = true;
+        System.out.println("Headphone connected to smartphone.");
     }
-    
-    public void disconnectedToSmartphone(){
-        isConnectedToHeadPhone = false;
-        System.out.println("Disconnected to smartphone Successful.");
-    }
-    
-    public boolean getIsConnectedToHeadPhone(){
-        return isConnectedToHeadPhone;
+
+    public void disconnectFromSmartphone() {
+        isConnectedToSmartphone = false;
+        System.out.println("Headphone disconnected from smartphone.");
     }
 }

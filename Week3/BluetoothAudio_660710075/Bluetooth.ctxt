@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Bluetooth
+comment1.params=smartPhone
+comment1.target=Bluetooth(SmartPhone)
+comment2.params=headPhone
+comment2.target=void\ connectToHeadphone(HeadPhone)
+comment3.params=
+comment3.target=void\ disconnect()
+comment4.params=
+comment4.target=boolean\ getBluetoothStatus()
+comment5.params=status
+comment5.target=void\ setBluetoothStatus(boolean)
+numComments=6
