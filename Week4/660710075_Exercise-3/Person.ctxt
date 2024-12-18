@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=firstName\ lastName\ age\ salary
+comment0.target=Person(java.lang.String,\ java.lang.String,\ int,\ java.lang.Double)
+comment1.params=bonus
+comment1.target=void\ IncreaseSalary(java.lang.Double)
+comment2.params=
+comment2.target=boolean\ ValidationData()
+comment3.params=
+comment3.target=java.lang.String\ getFirstName()
+comment4.params=
+comment4.target=int\ getAge()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6
