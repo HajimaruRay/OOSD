@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=newId\ newModel
+comment0.target=Robot(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getId()
+comment2.params=
+comment2.target=java.lang.String\ getModel()
+comment3.params=
+comment3.target=java.lang.String\ getBirthDate()
+numComments=4
