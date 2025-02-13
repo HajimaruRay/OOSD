@@ -12,22 +12,22 @@ public class BattleShipGame implements BattleShipGameBluePrint {
 
         if (playerID == 1) {
             if (boardPlayer2[yAxis][xAxis]) {
-                System.out.println("Player 1 hit Player 2 at (" + yAxis+1 + " : " + xAxis+1 + ")");
+                System.out.println("Player 1 hit Player 2 at (" + (yAxi s +1) + " : " + (xA x is+1) + ")");
                 boardPlayer2[yAxis][xAxis] = false;
                 return true;
             } else {
-                System.out.println("Player 1 missed at (" + yAxis+1 + " : " + xAxis+1 + ")");
+                System.out.println("Player 1 missed at (" + (yAxi s +1) + " : " + (xA x is+1) + ")");
                 return false;
             }
         }
 
         if (playerID == 2) {
             if (boardPlayer1[yAxis][xAxis]) {
-                System.out.println("Player 2 hit Player 1 at (" + yAxis+1 + " : " + xAxis+1 + ")");
+                System.out.println("Player 2 hit Player 1 at (" + (yAxi s +1) + " : " + (xA x is+1) + ")");
                 boardPlayer1[yAxis][xAxis] = false;
                 return true;
             } else {
-                System.out.println("Player 2 missed at (" + yAxis+1 + " : " + xAxis+1 + ")");
+                System.out.println("Player 2 missed at (" + (yAxi s +1) + " : " + (xA x is+1) + ")");
                 return false;
             }
         }
@@ -46,8 +46,8 @@ public class BattleShipGame implements BattleShipGameBluePrint {
 
             boardPlayer1[firstSpotyAxis][firstSpotxAxis] = true;
             boardPlayer1[secendSpotyAxis][secendSpotxAxis] = true;
-            System.out.println("Player 1 placed ship in (" + firstSpotyAxis+1 + ":" + firstSpotxAxis+1 + "),("
-                    + secendSpotyAxis+1 + ":" + secendSpotxAxis+1 + ")");
+            System.out.println("Player 1 placed ship in (" + (firstSpotyAxi s +1) + ":" + (firstSpotxA x is+1) + "),("
+                    + (secendSpotyAxi s +1) + ":" + (secendSpotxA x is+1) + ")");
             return true;
         } else if (playerID == 2) {
             if (boardPlayer2[firstSpotyAxis][firstSpotxAxis] || boardPlayer2[secendSpotyAxis][secendSpotxAxis]) {
@@ -56,8 +56,8 @@ public class BattleShipGame implements BattleShipGameBluePrint {
             }
             boardPlayer2[firstSpotyAxis][firstSpotxAxis] = true;
             boardPlayer2[secendSpotyAxis][secendSpotxAxis] = true;
-            System.out.println("Player 2 placed ship in (" + firstSpotyAxis+1 + ":" + firstSpotxAxis+1 + "),("
-                    + secendSpotyAxis+1 + ":" + secendSpotxAxis+1 + ")");
+            System.out.println("Player 2 placed ship in (" + (firstSpotyAxi s +1) + ":" + (firstSpotxA x is+1) + "),("
+                    + (secendSpotyAxi s +1) + ":" + (secendSpotxA x is+1) + ")");
             return true;
         }
 
@@ -76,8 +76,9 @@ public class BattleShipGame implements BattleShipGameBluePrint {
             boardPlayer1[firstSpotyAxis][firstSpotxAxis] = true;
             boardPlayer1[secendSpotyAxis][secendSpotxAxis] = true;
             boardPlayer1[thirdSpotyAxis][thirdSpotxAxis] = true;
-            System.out.println("Player 1 placed ship in (" + firstSpotyAxis+1 + ":" + firstSpotxAxis+1 + "),("
-                    + secendSpotyAxis+1 + ":" + secendSpotxAxis+1 + "),(" + thirdSpotyAxis+1 + ":" + thirdSpotxAxis+1 + ")");
+            System.out.println("Player 1 placed ship in (" + (firstSpotyAxi s +1) + ":" + (firstSpotxA x is+1) + "),("
+                    + (secendSpotyAxi s +1) + ":" + (secendSpotxA x is+1) + "),(" + (thirdSpot y Axis+1)
+                    + ":" + (thirdSp o txAxis+1) + ")");
             return true;
         } else if (playerID == 2) {
             if (boardPlayer2[firstSpotyAxis][firstSpotxAxis] && boardPlayer2[secendSpotyAxis][secendSpotxAxis]
@@ -88,8 +89,9 @@ public class BattleShipGame implements BattleShipGameBluePrint {
             boardPlayer2[firstSpotyAxis][firstSpotxAxis] = true;
             boardPlayer2[secendSpotyAxis][secendSpotxAxis] = true;
             boardPlayer2[thirdSpotyAxis][thirdSpotxAxis] = true;
-            System.out.println("Player 2 placed ship in (" + firstSpotyAxis+1 + ":" + firstSpotxAxis+1 + "),("
-                    + secendSpotyAxis+1 + ":" + secendSpotxAxis+1 + "),(" + thirdSpotyAxis+1 + ":" + thirdSpotxAxis+1 + ")");
+            System.out.println("Player 2 placed ship in (" + (firstSpotyAxi s +1) + ":" + (firstSpotxA x is+1) + "),("
+                    + (secendSpotyAxi s +1) + ":" + (secendSpotxA x is+1) + "),(" + (thirdSpot y Axis+1)
+                    + ":" + (thirdSp o txAxis+1) + ")");
             return true;
         }
 
@@ -126,7 +128,7 @@ public class BattleShipGame implements BattleShipGameBluePrint {
                     boardPlayer1[i][j] = false;
                     boardPlayer2[i][j] = false;
                 }
-        }
+            }
             return true;
         } else if (!player2HasShips) {
             System.out.println("Player 1 Win!");
@@ -135,7 +137,7 @@ public class BattleShipGame implements BattleShipGameBluePrint {
                     boardPlayer1[i][j] = false;
                     boardPlayer2[i][j] = false;
                 }
-        }
+            }
             return true;
         }
         return false;
@@ -147,9 +149,9 @@ public class BattleShipGame implements BattleShipGameBluePrint {
             System.out.println("Player 1");
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 6; j++) {
-                    if (boardPlayer1[i][j]){
+                    if (boardPlayer1[i][j]) {
                         System.out.print("0 ");
-                    } else{
+                    } else {
                         System.out.print("- ");
                     }
                 }
@@ -163,9 +165,9 @@ public class BattleShipGame implements BattleShipGameBluePrint {
             System.out.println("Player 2");
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 6; j++) {
-                    if (boardPlayer2[i][j]){
+                    if (boardPlayer2[i][j]) {
                         System.out.print("0 ");
-                    } else{
+                    } else {
                         System.out.print("- ");
                     }
                 }
