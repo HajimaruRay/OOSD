@@ -9,7 +9,7 @@ public class Proxy implements BattleShipGameBluePrint {
     public Proxy() {
         realGame = new BattleShipGame();
         User1Place2Long = 0;
-        User2Place2Long = 0;
+        User1Place3Long = 0;
         User2Place2Long = 0;
         User2Place3Long = 0;
         turnNumber = 1; // set turnNumber to 1 by defult
