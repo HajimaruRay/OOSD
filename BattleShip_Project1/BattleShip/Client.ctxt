@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Client
+comment1.params=playerID\ yAxis\ xAxis
+comment1.target=void\ shoot(int,\ int,\ int)
+comment2.params=playerID\ firstSpotyAxis\ firstSpotxAxis\ secendSpotyAxis\ secendSpotxAxis
+comment2.target=void\ placeShip2Long(int,\ int,\ int,\ int,\ int)
+comment3.params=playerID\ firstSpotyAxis\ firstSpotxAxis\ secendSpotyAxis\ secendSpotxAxis\ thirdSpotyAxis\ thirdSpotxAxis
+comment3.target=void\ placeShip3Long(int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment4.params=playerID
+comment4.target=void\ display(int)
+numComments=5

@@ -2,7 +2,7 @@
 public class Demo
 {
    public static void test(){
-       Clock clock = new Clock(09,00,00);
+       Clock clock = new Clock(9,00,00);
        Day day = new Day("Sun");
        TimerSwitch timerSwitch = new TimerSwitch(clock, day);
        IndicatorLight indicatorLight = new IndicatorLight(timerSwitch);

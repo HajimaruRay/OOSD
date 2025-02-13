@@ -1,12 +1,13 @@
 #BlueJ class context
-comment0.params=ts
-comment0.target=void\ setTimerSwitch(TimerSwitch)
-comment1.params=
-comment1.target=TSClock()
-comment2.params=hour\ minute\ second
-comment2.target=TSClock(int,\ int,\ int)
-comment3.params=
-comment3.target=java.lang.String\ getCurrentTime()
+comment0.target=TSClock
+comment1.params=ts
+comment1.target=void\ setTimerSwitch(TimerSwitch)
+comment2.params=
+comment2.target=TSClock()
+comment3.params=hour\ minute\ second
+comment3.target=TSClock(int,\ int,\ int)
 comment4.params=
-comment4.target=void\ run()
-numComments=5
+comment4.target=java.lang.String\ getCurrentTime()
+comment5.params=
+comment5.target=void\ run()
+numComments=6

@@ -28,8 +28,6 @@ public class Vehicles
        return fuelConsumption;
    }
    
-   
-   
    public boolean CalculateDistance(double distance){
        return ((getCurrentFuel()/getFuelConsumption()) < distance);
    }
