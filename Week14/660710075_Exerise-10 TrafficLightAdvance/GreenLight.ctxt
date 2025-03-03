@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=GreenLight
+comment1.params=trafficLight
+comment1.target=GreenLight(TrafficLight)
+comment2.params=
+comment2.target=java.lang.String\ design()
+numComments=3

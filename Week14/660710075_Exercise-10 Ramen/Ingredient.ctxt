@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Ingredient
+comment1.params=ramen
+comment1.target=Ingredient(Ramen)
+comment2.params=
+comment2.target=java.lang.String\ cook()
+comment3.params=
+comment3.target=Ramen\ getRamen()
+numComments=4
